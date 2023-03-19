@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MovieBase</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/c8e4d183c2.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/index.js" defer></script>
+  </head>
+  <body>
+    <section id="landing">
+      <nav>
+        <div class="nav__container">
+          <div class="nav__logo">Movie <span class="red">Base</span></div>
+          <ul class="nav__links">
+            <li><a href="/index.html" class="nav__link nav__home">Home</a></li>
+            <li><a href="#" class="nav__link">All Films</a></li>
+            <li>
+              <a href="#" class="nav__link nav__link--primary">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </section>
+    <main>
+      <section id="search">
+        <div class="search__box">
+          <input
+            class="search__input"
+            type="text"
+            placeholder="Search"
+            onchange="mainFilms(event)"
+          />
+          <button type="submit">Search</button>
+        </div>
+      </section>
+      <section id="films">
+        <div class="container">
+          <div class="row">
+            <div class="films__grid">
+              <div class="films__card">
+                <img
+                  class="film__img"
+                  src="/assets/ready.jpg"
+                  alt="Ready Player One Poster"
+                />
+                <h3 class="film__title">Ready Player One</h3>
+                <h3 class="film__year">2020</h3>
+                <h3 class="film__type">movie</h3>
+              </div>
+              <div class="films__card">
+                <img
+                  class="film__img"
+                  src="/assets/mando.jpg"
+                  alt="Mandalorian Poster"
+                />
+                <h3 class="film__title">Mandalorian</h3>
+                <h3 class="film__year">2019</h3>
+                <h3 class="film__type">series</h3>
+              </div>
+              <div class="films__card">
+                <img
+                  class="film__img"
+                  src="/assets/avengers.jpg"
+                  alt="Avengers Endgame Poster"
+                />
+                <h3 class="film__title">Avengers Endgame</h3>
+                <h3 class="film__year">2019</h3>
+                <h3 class="film__type">Movie</h3>
+              </div>
+              <div class="films__card">
+                <img
+                  class="film__img"
+                  src="/assets/justice.jpg"
+                  alt="Zack Snyder's Justice League Poster"
+                />
+                <h3 class="film__title">Justice League</h3>
+                <h3 class="film__year">2021</h3>
+                <h3 class="film__type">Movie</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
