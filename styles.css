@@ -191,3 +191,20 @@ h3 {
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+/* SMALL PHONES, LARGE SMARTPHONES */
+@media (max-width: 570px) {
+  .nav__link {
+    display: none;
+  }
+
+  .nav__home {
+    display: block;
+  }
+
+  .films__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
