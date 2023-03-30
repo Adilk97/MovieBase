@@ -163,6 +163,30 @@ select {
   max-width: 200px;
 }
 
+.fa-spinner {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50, -50%);
+  font-size: 35px;
+  animation: rotate 600ms infinite linear;
+  color: #e40000;
+  display: none !important;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.films__loading--spinner {
+  display: block !important;
+}
+
 /* FILM CARD */
 
 .films__card {
