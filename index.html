@@ -43,6 +43,13 @@
         </div>
       </section>
       <section id="films">
+        <div class="filter__box">
+          <select id="filter" onchange="filterFilms(event)">
+            <option value="" selected disabled>Sort</option>
+            <option value="LOW_TO_HIGH">Year - Low to High</option>
+            <option value="HIGH_TO_LOW">Year - High to Low</option>
+          </select>
+        </div>
         <div class="container">
           <div class="row">
             <div class="films__grid">

@@ -11,6 +11,8 @@ async function mainFilms(event) {
 
   const data = await fetchFilms.json();
 
+  localStorage.setItem("filmSearch", event.target.value);
+
   return new Promise(() => {
     setTimeout(() => {
       if (!data.Search) {
@@ -19,6 +21,15 @@ async function mainFilms(event) {
         filmInfo.innerHTML = data.Search.map((film) => {
           return showFilm(film);
         }).join("");
+
+        if (filter === "LOW_TO_HIGH") {
+          data.Search.sort((a, b) => a.Year - b.Year);
+          filmInfo.innerHTML = data.Search.sort((a, b) => a.Year - b.Year);
+        } else if (filter === "HIGH_TO_LOW") {
+          data.Search.sort((a, b) => b.Year - a.Year);
+          filmInfo.innerHTML = data.Search.sort((a, b) => b.Year - a.Year);
+        }
+
         spinnerShowing.classList.remove("films__loading--spinner");
       }
     }, 1000);
@@ -34,4 +45,31 @@ function showFilm(film) {
   <h3 class="film__year">${film.Year}</h3>
   <h3 class="film__type">${film.Type}</h3>
   </div> `;
+}
+
+async function renderFilms(search, filter) {
+  const fetchFilm = await fetch(
+    `https://www.omdbapi.com/?apikey=96689458&s=${search}}`
+  );
+  const data = await fetchFilm.json();
+
+  if (filter === "LOW_TO_HIGH") {
+    data.Search.sort((a, b) => a.Year - b.Year);
+  } else if (filter === "HIGH_TO_LOW") {
+    data.Search.sort((a, b) => b.Year - a.Year);
+  } else {
+    data.Search.sort((a, b) => b.Year - a.Year);
+    data.Search.sort((a, b) => a.Year - b.Year);
+  }
+
+  console.log(data.Search);
+
+  filmInfo.innerHTML = data.Search.map((film) => {
+    return showFilm(film);
+  }).join("");
+}
+
+function filterFilms(event) {
+  const filmSearch = localStorage.getItem("filmSearch");
+  renderFilms(filmSearch, event.target.value);
 }
