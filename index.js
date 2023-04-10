@@ -1,10 +1,12 @@
 const filmInfo = document.querySelector(".films__grid");
 const spinner = document.querySelector(".films__fa");
 const spinnerShowing = document.querySelector(".fa-spinner");
+const filterShowing = document.querySelector("#filter");
 
 async function mainFilms(event) {
   const searchInput = event.target.value;
   spinnerShowing.classList += " films__loading--spinner";
+  filterShowing.classList += " filter__box";
   const fetchFilms = await fetch(
     `https://www.omdbapi.com/?apikey=96689458&s=${searchInput}`
   );
